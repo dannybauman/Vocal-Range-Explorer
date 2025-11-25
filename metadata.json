@@ -1,0 +1,7 @@
+{
+  "name": "Vocal Range Explorer",
+  "description": "Determine your vocal classification (Tenor, Baritone, etc.) using real-time pitch detection and get personalized advice from Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
