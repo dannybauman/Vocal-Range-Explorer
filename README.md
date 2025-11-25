@@ -16,9 +16,31 @@ A web application that helps you determine your vocal classification (Tenor, Bar
 3. Sing your highest comfortable note and capture it.
 4. View your results, song suggestions, and recommended exercises.
 
+## Local Development
+
+To run this application locally on your machine:
+
+1.  **Clone the repository** (or download the files).
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Setup API Key**:
+    *   Create a file named `.env` in the root directory.
+    *   Add your Google Gemini API key (Get one from [Google AI Studio](https://aistudio.google.com/)):
+        ```env
+        API_KEY=your_actual_api_key_here
+        ```
+4.  **Run the app**:
+    ```bash
+    npm run dev
+    ```
+5.  Open the link provided in the terminal (usually `http://localhost:5173`).
+
 ## Credits
 
-This application was built with the assistance of **Gemini 3 Pro** and **Google AI Studio**.
+*   **Technology**: Built with the assistance of **Gemini 3 Pro** and **Google AI Studio**.
+*   **Inspiration**: Special thanks to **Jonas** for the encouragement to sing together!
 
 ## License
 
