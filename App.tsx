@@ -255,7 +255,7 @@ const App: React.FC = () => {
       <footer className="py-6 text-center text-slate-600 text-sm">
         <div className="space-y-1">
             <p>Built with help from <span className="text-indigo-400 font-medium">Gemini 3 Pro</span> and <span className="text-indigo-400 font-medium">Google AI Studio</span></p>
-            <p className="text-xs text-slate-700">Special thanks to Jonas for inspiring us to start a barbershop quartet! 💈</p>
+            <p className="text-xs text-slate-700">Special thanks to Jonas for inspiring us to sing together! 💈</p>
         </div>
       </footer>
     </div>
