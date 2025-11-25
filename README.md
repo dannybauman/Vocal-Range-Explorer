@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Vocal Range Explorer
 
-# Run and deploy your AI Studio app
+A web application that helps you determine your vocal classification (Tenor, Baritone, Soprano, etc.) using real-time pitch detection and AI analysis.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1HT1qN9nzHgn4nGvoI3xiyDKVlVAj1fLw
+- **Real-time Pitch Detection**: Uses the Web Audio API and auto-correlation to detect your pitch via microphone.
+- **Visual Feedback**: A tuner-style interface helps you hold the correct note.
+- **AI Analysis**: Integrates with Google's Gemini API to analyze your range and provide personalized voice type descriptions.
+- **Recommendations**: Gets song suggestions and vocal exercises tailored to your voice type.
 
-## Run Locally
+## How to Use
 
-**Prerequisites:**  Node.js
+1. Click "Start Vocal Test".
+2. Sing your lowest comfortable note and capture it.
+3. Sing your highest comfortable note and capture it.
+4. View your results, song suggestions, and recommended exercises.
 
+## Credits
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+This application was built with the assistance of **Gemini 3 Pro** and **Google AI Studio**.
+
+## License
+
+MIT

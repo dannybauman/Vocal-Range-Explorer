@@ -140,7 +140,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-900 text-white selection:bg-indigo-500 selection:text-white overflow-x-hidden flex flex-col">
       {/* Navbar / Header */}
       <header className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -153,7 +153,7 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      <main className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
+      <main className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center flex-grow">
         
         {appState === AppState.WELCOME && (
           <div className="text-center max-w-2xl mx-auto animate-fade-in space-y-8">
@@ -251,6 +251,10 @@ const App: React.FC = () => {
             />
         )}
       </main>
+
+      <footer className="py-6 text-center text-slate-600 text-sm">
+        Built with help from <span className="text-indigo-400 font-medium">Gemini 3 Pro</span> and <span className="text-indigo-400 font-medium">Google AI Studio</span>
+      </footer>
     </div>
   );
 };
