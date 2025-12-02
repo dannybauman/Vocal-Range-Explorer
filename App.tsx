@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [lowNote, setLowNote] = useState<NoteData | null>(null);
   const [highNote, setHighNote] = useState<NoteData | null>(null);
   const [analysis, setAnalysis] = useState<VocalAnalysis | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<React.ReactNode | null>(null);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -116,9 +116,30 @@ const App: React.FC = () => {
         const result = await analyzeVocalRange(finalLow, finalHigh);
         setAnalysis(result);
         setAppState(AppState.RESULTS);
-    } catch (e) {
-        console.error(e);
-        setError("Failed to analyze results. Please try again.");
+    } catch (e: any) {
+        console.error("Analysis Error:", e);
+        
+        let errorNode: React.ReactNode = "Failed to analyze results. Please try again.";
+
+        if (e.message === "API_KEY_MISSING") {
+            errorNode = (
+                <span>
+                    <strong>API Key Missing:</strong> Please check your <code className="bg-rose-900/50 px-1 rounded">.env</code> file. It must contain a valid <code>API_KEY</code>.
+                </span>
+            );
+        } else if (e.message === "API_KEY_INVALID") {
+             errorNode = (
+                <span>
+                    <strong>Invalid API Key:</strong> The API key provided is rejected by Google. Please check your <code className="bg-rose-900/50 px-1 rounded">.env</code> file.
+                </span>
+            );
+        } else if (e.message === "TIMEOUT") {
+            errorNode = "The request timed out. Please check your internet connection and try again.";
+        } else if (e.message === "NETWORK_ERROR") {
+             errorNode = "Network error. Please check your internet connection.";
+        }
+
+        setError(errorNode);
         setAppState(AppState.WELCOME);
     }
   };
@@ -130,6 +151,7 @@ const App: React.FC = () => {
       setAnalysis(null);
       setCurrentNote(null);
       setAppState(AppState.WELCOME);
+      setError(null);
   };
 
   // Cleanup on unmount
@@ -165,7 +187,7 @@ const App: React.FC = () => {
             </p>
             
             {error && (
-                <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 p-4 rounded-xl mb-6">
+                <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 p-4 rounded-xl mb-6 text-sm">
                     {error}
                 </div>
             )}
